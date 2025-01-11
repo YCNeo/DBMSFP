@@ -1,0 +1,319 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Trebuchet MS', sans-serif;
+  max-height: 100vh;
+
+}
+
+/* styles.css */
+.home-container{
+  /* 控制內容對齊方式 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 新增上下內邊距控制與頁面其他部分距離 */
+  margin-top: 0px;
+}
+
+.arrow-button {
+  background: none;
+  border-radius: 50%;
+  border: none;
+  margin: 0px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #6c5ce7;
+}
+
+.month-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 20px;
+  color: #6c5ce7;
+}
+
+.pie-chart-container {
+  width: 200px;
+  height: 200px;
+  margin: 0px 0px 80px 0px;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.pie-chart {
+  transform: rotate(-90deg);
+  width: 100%;
+  height: 100%;
+}
+
+.total-expense {
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #6c5ce7;
+  font-weight: bold;
+}
+
+.transaction-header {
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #6c5ce7;
+  position: sticky;
+  top: 0; /* 距離頂部固定 0 像素 */
+  box-sizing: border-box;
+  width: 100%;
+  z-index: 10; /* 確保分帳按鈕和標題在最上層 */
+  background: #ffffff; /* 固定行的背景色 */
+  padding: 10px 10px 5px 20px;
+  max-height: 50px;
+}
+
+.transaction-table-header {
+  font-size: 14px;
+  height: 25px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(4, 1fr); /* 平分四欄 */
+  font-weight: bold;
+  color: #2f2f2f;
+  text-align: center;
+  background: #fff5b5; /* 背景色 */
+  position: sticky;
+  top: 44px;
+  padding: 0px 0px 0px 0px;
+  border-bottom: 3px 3px 3px 3px solid #fff5b5;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05); /* 添加陰影，增強可視性 */
+}
+
+.transaction-records {
+  width: 95%;
+  max-width: 750px;
+  margin: 0 auto;
+  overflow-y: auto;
+  position: relative;
+  background: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0px 0px 10px rgb(193, 193, 193);
+  max-height: 450px; /* 根據需要調整最大高度 */
+  padding: 0px 0px 0px 0px;
+  box-sizing: border-box;
+}
+
+.transaction-table {
+  width: 100%; 
+  border-collapse: collapse;
+  font-size: 14px;
+  table-layout: fixed;
+}
+
+.transaction-table th, .transaction-table td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #eee; /* 添加表格分隔線 */
+  word-wrap: break-word;
+}
+
+
+
+.transaction-records::-webkit-scrollbar {
+  width: 6px; /* 滾動條寬度 */
+}
+
+.transaction-records::-webkit-scrollbar-thumb {
+  background: #fff5b5; /* 滾動條滑塊的顏色 */
+  border-radius: 5px; /* 滾動條圓角 */
+  height: 30px; 
+}
+
+.transaction-records::-webkit-scrollbar-thumb:hover {
+  background: #ffea9f; /* 滾動條滑塊在 hover 時的顏色 */
+}
+
+.transaction-records::-webkit-scrollbar-track {
+  background: #ffffff; /* 滾動條軌道的背景顏色 */
+  border-radius: 0px 20px 20px 0px; /* 軌道圓角 */
+}
+
+.search-button {
+  background: #fff;
+  color: #6c5ce7;
+  border: none;
+  border-radius: 50%;
+  padding: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.search-input {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+.split-button {
+  background: #fff;
+  color: #6c5ce7;
+  border: 1.5px solid #6c5ce7;
+  border-radius: 100px;
+  padding: 2px 12px;
+  font-size: 14px;
+  font-weight: bold;
+}
+/*.split-button:hover {
+  color: #ffffff;
+  cursor: pointer;
+  background: #f4d1f7;
+  border: 2px solid #f4d1f7;
+}*/
+
+.positive {
+  color: #b9b9ff;
+  font-weight: bold;
+}
+
+.negative {
+  color: #ffaad5;
+  font-weight: bold;
+}
+
+.action-buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.add-button {
+  background: linear-gradient(to right, #ffecf5, #f1e1ff);
+  color: #6a6aff;
+  border-radius: 50px;
+  padding: 0px;
+  width: 45px;
+  height: 45px;
+  max-height: 45px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.view-score-button {
+  background: linear-gradient(to right, #ffecf5, #f1e1ff);
+  color: #2f2f2f;
+  border-radius: 20px;
+  font-size: 15px;
+  height: 45px;
+  width: 120px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar {
+  max-width: 150px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 0;
+  background: #fff6bb;
+  color: #fff;
+  overflow: hidden;
+  transition: width 0.1s ease;
+  box-shadow: none;
+  z-index: 2000;
+}
+
+.sidebar.open {
+  width: 150px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-content {
+  padding: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 20px;
+  border: 10px #fff;
+  padding: 1px 2px; /* 增加按鈕內邊距 */
+  border-radius:50px; 
+  background: #fff; /* 調整按鈕背景透明度 */
+  
+}
+
+.sidebar ul li button {
+  padding: 5px px;
+  background: rgba(0, 0, 0, 1); 
+  font-weight: bold;
+  background: none;
+  color: #2f2f2f;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.sidebar-toggle {
+  width: 20px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: #fff5b5;
+  color: #2f2f2f;
+  border-radius: 40px 0 0 40px;
+  padding: 10px 20px;
+  cursor: pointer;
+  z-index: 1050;
+  z-index: 3000;
+}
